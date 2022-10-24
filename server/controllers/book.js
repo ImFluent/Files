@@ -26,7 +26,7 @@ module.exports.displayBookList = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('book/add', {title: 'Add Book', 
+    res.render('book/add', {title: 'Add Contact', 
     displayName: req.user ? req.user.displayName : ''})          
 }
 
@@ -35,8 +35,7 @@ module.exports.processAddPage = (req, res, next) => {
         "name": req.body.name,
         "author": req.body.author,
         "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+       
     });
 
     Book.create(newBook, (err, Book) =>{
@@ -66,7 +65,7 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('book/edit', {title: 'Edit Book', book: bookToEdit, 
+            res.render('book/edit', {title: 'Edit Contacts', book: bookToEdit, 
             displayName: req.user ? req.user.displayName : ''})
         }
     });
@@ -80,8 +79,7 @@ module.exports.processEditPage = (req, res, next) => {
         "name": req.body.name,
         "author": req.body.author,
         "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+     
     });
 
     Book.updateOne({_id: id}, updatedBook, (err) => {
