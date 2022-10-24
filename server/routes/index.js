@@ -7,19 +7,30 @@ let indexController = require('../controllers/index');
 router.get('/', indexController.displayHomePage);
 
 /* GET home page. */
-router.get('/home', indexController.displayHomePage);
-
+router.get('/home', function(req, res, next) {
+    res.render('home', { title: 'Home'});
+  });
+  
 /* GET About Us page. */
-router.get('/about', indexController.displayAboutPage);
-
+router.get('/about', function(req, res, next) {
+    res.render('About', { title: 'About'});
+  });
+  
 /* GET Products page. */
-router.get('/products', indexController.displayProductsPage);
+router.get('/Projects', function(req, res, next) {
+    res.render('Projects', { title: 'Projects'});
+  });
+  
 
 /* GET Services page. */
-router.get('/services', indexController.displayServicesPage);
+router.get('/services', function(req, res, next) {
+    res.render('services', { title: 'Services'});
+  });
 
 /* GET Contact Us page. */
-router.get('/contact', indexController.displayContactPage);
+router.get('/contact', function(req, res, next) {
+    res.render('contact', { title: 'Contact'});
+  });
 
 /* GET Route for displaying the Login page */
 router.get('/login', indexController.displayLoginPage);
